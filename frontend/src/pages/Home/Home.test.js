@@ -1,9 +1,12 @@
-import { render, screen, waitFor } from '@testing-library/react';
-import { API_URL } from '../../utils/constants';
+import { render, screen } from '@testing-library/react';
 import axios from 'axios';
 import Home from '.';
+import { API_URL } from '../../utils/constants';
 
 describe('Test Home', () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+  })
   test('Test Render', async () => {
     //Arrange: Setup the mock API
     //Listen for any GET requests using the axios module
@@ -37,6 +40,10 @@ describe('Test Home', () => {
           });
       }
     });
+  })
+  test('Test Render Integration', async () => {
+    //Arrange: Setup the mock API
+
 
     //Act: Call the Home page
     render(<Home />);
